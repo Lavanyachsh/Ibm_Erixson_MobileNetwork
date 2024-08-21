@@ -33,10 +33,9 @@ namespace Ibm_Erixson_MobileNetwork.Repositores
 
         public async Task<Room> GetAllRoomsById(int id)
         {
-            Room rm = await _hotelrmcontext.rooms.ToListAsync().Result.FindAll(e => e.id == id);
-           Room rm = await _hotelrmcontext.rooms.Where(e => e.id == id).ToListAsync();
+            var rm = await _hotelrmcontext.rooms.Where(e => e.id == id).FirstOrDefaultAsync();
 
-            if (rm== null)
+            if (rm == null)
                 return null;
             else
                 return rm;
@@ -53,8 +52,8 @@ namespace Ibm_Erixson_MobileNetwork.Repositores
         public async Task<bool> UpdateRoomTypes(Room rmdetail)
         {
 
-            await _hotelrmcontext.rooms.Update(rmdetail);
-            _hotelrmcontext.SaveChanges();
+            _hotelrmcontext.Update(rmdetail);
+            await _hotelrmcontext.SaveChangesAsync();
             return true;
         }
     }

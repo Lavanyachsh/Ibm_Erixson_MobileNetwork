@@ -11,4 +11,5 @@ namespace Ibm_Erixson_MobileNetwork.Interfaces
         Task<bool> UpdateRoomTypes(Room rmdetail);
 
     }
+    //Task<Room> GetAllRoomsById(int id)
 }

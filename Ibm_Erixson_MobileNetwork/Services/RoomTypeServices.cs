@@ -76,7 +76,7 @@ namespace Ibm_Erixson_MobileNetwork.Services
             rm.vat=rmdtodetail.vat;
             rm.checkOut=rmdtodetail.checkOut;
             rm.checkIn=rmdtodetail.checkIn;
-            rm.maxPersons = rmdtodetail.maxPersons;
+            rm.roomTypeName = rmdtodetail.roomTypeName;
             await _rmtrepositores.UpdateRoomTypes(rm);  
             return true;
         }
